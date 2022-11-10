@@ -3,7 +3,21 @@
     text-shadow: black 1px 0 10px;
 }
 .my_card{
-    height: 22rem;
     border: none;
     box-shadow: 10px 5px 5px rgb(19, 18, 18);
+}
+.card-detail{
+    border-radius: 10px;
+    width: 900px;
+    background-color: white;
+    box-shadow: 10px 5px 5px rgb(19, 18, 18);
+}
+.img-card{
+    max-height: 270px;
+}
+.img_detail{
+    width: 80%;
+}
+.photo{
+    text-align: right;
 }

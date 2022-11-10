@@ -14,9 +14,9 @@
                 $('.row').append(`              
                         <a href="character.html?id=${data[i].char_id}" class="text-decoration-none text-black">
                             <div class="my_card card my-3 mx-2">
-                                <img src="${data[i].img}" class="card-img-top" alt="...">
+                                <img src="${data[i].img}" class="img-card card-img-top" alt="...">
                                 <div class="card-body">
-                                <h5 class="card-title">${data[i].name}</h5>
+                                    <h5 class="card-title">${data[i].name}</h5>
                                 </div>
                             </div>
                         </a>               
