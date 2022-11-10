@@ -3,6 +3,7 @@
     let container = $('#container');
     btnOpen.on('click', function(){
         container.append('<div id="notice"></div>');
+        $('#notice').addClass('modal')
         $('#notice').append('<p>Уведомление</p>');
         $('#notice').append('<input id="close-btn" type="button" value="Закрыть">');
         console.log($('p'));
