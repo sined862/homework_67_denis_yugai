@@ -13,9 +13,9 @@ $.ajax(
             container = $('.container');
             $('title').text(`${data[0].name}`);
             $('.container').append('<div id="row" class="row"></div>');
-            $('#row').append('<div class="card-detail col-md-8 mx-auto my-5"></div>');
+            $('#row').append('<div class="card-detail col-md-8 mx-auto my-5 pb-5"></div>');
             $('.card-detail').append(`
-            <h1 class="text-center pt-3">${data[0].name}</h1>
+                <h1 class="text-center pt-3">${data[0].name}</h1>
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 py-4">
                     <div class="photo mb-5">
                         <img class="img_detail" src="${data[0].img}">
@@ -31,6 +31,15 @@ $.ajax(
                     </div>
                 </div>
             `);
+            $.get(`https://www.breakingbadapi.com/api/quote?author=${data[0].name}`, function(data){
+                console.log(data)
+                $('.card-detail').append(`
+                    <h2 class="text-center mb-5"><strong>Цитаты:</strong></h2>
+                `)
+                for(let i=0; i<data.length; i++){
+                    $('.card-detail').append(`<p class="ms-5">${data[i].quote}</p>`)
+                }
+            })
         },
         error: function(response, status){
             console.log(status)
