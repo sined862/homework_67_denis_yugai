@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <style>
+        .button_open {
+            background: #428bca;
+            padding: 1em 2em;
+            color: #fff;
+            border: 0;
+            border-radius: 5px;
+            cursor: pointer;
+            }
+
+            .button:hover {
+            background: #3876ac;
+            }
+        .button_close {
+            background: #e63333;
+            padding: 1em 2em;
+            color: #fff;
+            border: 0;
+            border-radius: 5px;
+            cursor: pointer;
+            }
+
+            .button:hover {
+            background: #3876ac;
+            }
+        .modal{
+            font-size: 12px;
+            background-color: #e5e6fd;
+            width: 30em;
+            height: 17%;
+            text-align: center;
+            border: 1px solid #3876ac;
+            border-radius: 5px;
+            display:block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: auto;
+        }
+
+
+    </style>
+    <div id="container">
+        <button id="add-item-btn" class="button_open"> + </button>
+    </div>
+    <script>
+        $(function(){
+            $('#add-item-btn').click(function(){
+                $('#container').append(`
+                    <div class="modal">
+                        <div class="modal-content">
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                            <button id="button_close" class="button_close">закрыть</button>
+                        </div>
+                    </div>
+                `);
+                setTimeout(function(){
+                    $('.modal').remove();
+                }, 5000);
+                $('.button_close').click(function(){
+                    $('.modal').remove();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

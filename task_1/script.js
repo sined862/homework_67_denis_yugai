@@ -1,18 +1,18 @@
 ﻿$(function(){
-    let btnOpen = $('#add-item-btn');
-    let container = $('#container');
-    btnOpen.on('click', function(){
-        container.append('<div id="notice"></div>');
-        $('#notice').addClass('modal')
-        $('#notice').append('<p>Уведомление</p>');
-        $('#notice').append('<input id="close-btn" type="button" value="Закрыть">');
-        console.log($('p'));
-        btnClose = $('#close-btn');
+    $('#add-item-btn').click(function(){
+        $('#container').append(`
+            <div class="modal">
+                <div class="modal-content">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                    <button id="button_close" class="button_close">закрыть</button>
+                </div>
+            </div>
+        `);
         setTimeout(function(){
-            $('#notice').remove();
+            $('.modal').remove();
         }, 5000);
-        btnClose.on('click', function(){
-            $('#notice').remove();
-        })
+        $('.button_close').click(function(){
+            $('.modal').remove();
+        });
     });
-})
+});
