@@ -15,7 +15,7 @@ $.ajax(
             $('.container').append('<div id="row" class="row"></div>');
             $('#row').append('<div class="card-detail col-md-8 mx-auto my-5"></div>');
             $('.card-detail').append(`
-            <h3 class="text-center pt-3">${data[0].name}</h3>
+            <h1 class="text-center pt-3">${data[0].name}</h1>
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 py-4">
                     <div class="photo mb-5">
                         <img class="img_detail" src="${data[0].img}">
