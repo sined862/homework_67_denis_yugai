@@ -1,4 +1,9 @@
-﻿.row{
-    display: flex;
-    flex-wrap: wrap;
+﻿.title{
+    color: white;
+    text-shadow: black 1px 0 10px;
+}
+.my_card{
+    height: 22rem;
+    border: none;
+    box-shadow: 10px 5px 5px rgb(19, 18, 18);
 }

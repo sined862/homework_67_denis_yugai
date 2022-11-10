@@ -1,6 +1,5 @@
 ﻿let urlParams = new URLSearchParams(window.location.search);
 const char_id = urlParams.get('id');
-console.log(char_id)
 
 $.ajax(
     {

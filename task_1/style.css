@@ -1,4 +1,7 @@
-﻿.button_open {
+﻿#container{
+    width: 800px;
+}
+.button_open {
     background: #428bca;
     padding: 1em 2em;
     color: #fff;
