@@ -33,12 +33,14 @@ $.ajax(
             `);
             $.get(`https://www.breakingbadapi.com/api/quote?author=${data[0].name}`, function(data){
                 console.log(data)
-                $('.card-detail').append(`
+                if(data.length > 0){
+                    $('.card-detail').append(`
                     <h2 class="text-center mb-5"><strong>Цитаты:</strong></h2>
-                `)
-                for(let i=0; i<data.length; i++){
+                    `)
+                    for(let i=0; i<data.length; i++){
                     $('.card-detail').append(`<p class="ms-5">${data[i].quote}</p>`)
-                }
+                    }
+                }      
             })
         },
         error: function(response, status){
