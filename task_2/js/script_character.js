@@ -26,7 +26,13 @@ $.ajax(
                     }
                 }
                 birthday = diffYears
-            }        
+            }    
+            photo = data[0].img
+            console.log(`Img - ${data[0].img}`)
+            if(photo.length == 0){
+                console.log('Нет фото')
+                photo = 'no.jpg'
+            }    
             container = $('.container');
             $('title').text(`${data[0].name}`);
             $('.container').append('<div id="row" class="row"></div>');
@@ -35,7 +41,7 @@ $.ajax(
                 <h1 class="text-center pt-3">${data[0].name}</h1>
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 py-4">
                     <div class="photo mb-5">
-                        <img class="img_detail" src="${data[0].img}">
+                        <img class="img_detail" src="${photo}" alt="photo">
                     </div>
                     <div class="info">
                         <p><strong>Возраст: </strong>${birthday}</p>
@@ -57,7 +63,8 @@ $.ajax(
                     for(let i=0; i<data.length; i++){
                     $('.card-detail').append(`<p class="mx-5">${data[i].quote}</p>`)
                     }
-                }      
+                }   
+                $('.card-detail').append('<a class="ms-5" href="index.html">Вернуться на главную страницу</a>')  
             })
         },
         error: function(response, status){
