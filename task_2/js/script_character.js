@@ -6,10 +6,27 @@ $.ajax(
         url: `https://www.breakingbadapi.com/api/characters/${char_id}`,
         method: 'GET',
         success: function(data, status){
-            let birthday = data[0].birthday
+            let birthday = data[0].birthday;
             if(birthday === 'Unknown'){
                 birthday = 'Не указано'
-            }
+            }else{
+                let yearBirthday = birthday.substring(birthday.length - 4);
+                let monthBirthday = birthday[4];
+                let dayBirthday = birthday[1];
+                let yearNow = new Date().getFullYear();
+                let monthNow = new Date().getMonth();
+                let dayNow = new Date().getDate();
+                let diffYears = (yearNow - yearBirthday);
+                if(monthBirthday < monthNow){
+                    diffYears -= 1
+                }
+                else{
+                    if(dayBirthday < dayNow){
+                        diffYears -= 1
+                    }
+                }
+                birthday = diffYears
+            }        
             container = $('.container');
             $('title').text(`${data[0].name}`);
             $('.container').append('<div id="row" class="row"></div>');
@@ -21,7 +38,7 @@ $.ajax(
                         <img class="img_detail" src="${data[0].img}">
                     </div>
                     <div class="info">
-                        <p><strong>День рождения: </strong>${birthday}</p>
+                        <p><strong>Возраст: </strong>${birthday}</p>
                         <p><strong>Список известных занятий персонажа: </strong>${data[0].occupation} </p>
                         <p><strong>Живы ли они (или до них Гейзенберг добрался?): </strong>${data[0].status}</p>
                         <p><strong>Прозвище: </strong>${data[0].nickname}</p>
@@ -38,7 +55,7 @@ $.ajax(
                     <h2 class="text-center mb-5"><strong>Цитаты:</strong></h2>
                     `)
                     for(let i=0; i<data.length; i++){
-                    $('.card-detail').append(`<p class="ms-5">${data[i].quote}</p>`)
+                    $('.card-detail').append(`<p class="mx-5">${data[i].quote}</p>`)
                     }
                 }      
             })
